@@ -1,0 +1,147 @@
+{% assign title = page.title %} {% if page.title %} {% assign title = title |
+append: " | " %} {% endif %} {% assign title = title | append: site.title %} {%
+assign thumbnail = site.baseurl | append: "/images/thumbnail.jpg" %} {% if
+page.thumbnail %} {% assign thumbnail = site.baseurl | append: "/images/" |
+append: page.thumbnail %} {% endif %}
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="index, follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="theme-color" content="#991f1c" />
+
+  <title>{{ title }}</title>
+  <meta
+    name="description"
+    property="og:description"
+    content="{{ site.description }}"
+  />
+  <meta name="keywords" content="{{ page.keywords }}" />
+  <meta
+    name="image"
+    property="og:image"
+    itemprop="image"
+    content="{{ thumbnail }}"
+  />
+  <meta name="type" property="og:type" content="website" />
+  <meta name="url" property="og:url" content="{{page.url}}" />
+  <meta name="site_name" property="og:site_name" content="{{ title }}" />
+
+  <meta name="locale" property="og:locale" content="pt_BR" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="{{ site.baseurl }}/{{page.url}}" />
+  <meta name="twitter:title" content="{{ title }}" />
+  <meta name="twitter:description" content="{{page.description}}" />
+  <meta name="twitter:image" content="{{ thumbnail }}" />
+
+  <link
+    rel="icon"
+    href="{{ site.baseurl }}/images/favicon.png"
+    type="image/png"
+  />
+
+  <style>
+    /* Reset CSS */
+    *,
+    *:before,
+    *:after {
+      margin: 0;
+      padding: 0;
+      outline: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    }
+
+    ol,
+    ul {
+      list-style: none;
+    }
+
+    a,
+    a:hover,
+    a:visited {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Content CSS */
+    :root {
+      --color-background: #000e0e;
+      --color-background-transparent: #000e0e80;
+      --color-primary-pure: #991f1c;
+
+      --color-text: #f5f5f5;
+      --color-margin: #f5f5f580;
+    }
+
+    body {
+      background: var(--color-background);
+      color: var(--color-text);
+    }
+
+    main {
+      /* --height-header: 0;
+      --height-footer: 0;
+      min-height: calc(100vh - var(--height-header) - var(--height-footer));
+      min-height: calc(100dvh - var(--height-header) - var(--height-footer)); */
+
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+
+    a:hover {
+      color: var(--color-primary-pure);
+      cursor: pointer;
+    }
+
+    img.background {
+      object-fit: cover;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      opacity: 0.35;
+
+      z-index: -1;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      z-index: 0;
+    }
+
+    & h2 {
+      font-size: 2.5rem;
+    }
+
+    & h3 {
+      font-size: 2rem;
+    }
+
+    & p {
+      font-size: 1.5rem;
+
+      & a,
+      & a:hover,
+      & a:visited {
+        text-decoration: underline;
+      }
+    }
+
+    /* Content Header */
+    header {
+    }
+
+    /* Content Footer */
+    footer {
+    }
+  </style>
+</head>
