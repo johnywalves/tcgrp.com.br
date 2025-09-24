@@ -63,18 +63,11 @@ append: page.thumbnail %} {% endif %}
       list-style: none;
     }
 
-    a,
-    a:hover,
-    a:visited {
-      text-decoration: none;
-      color: inherit;
-    }
-
     /* Content CSS */
     :root {
       --color-background: #000e0e;
       --color-background-transparent: #000e0e80;
-      --color-primary-pure: #991f1c;
+      --color-primary-pure: #1b9eda;
 
       --color-text: #f5f5f5;
       --color-margin: #f5f5f580;
@@ -86,18 +79,9 @@ append: page.thumbnail %} {% endif %}
     }
 
     main {
-      /* --height-header: 0;
-      --height-footer: 0;
-      min-height: calc(100vh - var(--height-header) - var(--height-footer));
-      min-height: calc(100dvh - var(--height-header) - var(--height-footer)); */
-
+      z-index: 0;
       min-height: 100vh;
       min-height: 100dvh;
-    }
-
-    a:hover {
-      color: var(--color-primary-pure);
-      cursor: pointer;
     }
 
     img.background {
@@ -105,35 +89,37 @@ append: page.thumbnail %} {% endif %}
       position: fixed;
       width: 100%;
       height: 100%;
-      opacity: 0.35;
+      opacity: 0.15;
 
       z-index: -1;
     }
 
-    main {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-      z-index: 0;
-    }
-
     & h2 {
-      font-size: 2.5rem;
+      font-size: 2.75rem;
+      font-weight: 400;
+      text-align: center;
     }
 
     & h3 {
       font-size: 2rem;
+      text-align: center;
     }
 
     & p {
       font-size: 1.5rem;
+      font-weight: 300;
+    }
 
-      & a,
-      & a:hover,
-      & a:visited {
-        text-decoration: underline;
-      }
+    & a,
+    & a:visited {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: var(--color-primary-pure);
+      cursor: pointer;
     }
 
     /* Content Header */

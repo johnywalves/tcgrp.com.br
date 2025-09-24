@@ -1,11 +1,35 @@
 {% include head.html %}
+<style>
+  main.home,
+  div.group,
+  ul,
+  li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main.home {
+    gap: 3rem;
+    padding: 2rem;
+  }
+
+  div.group {
+    gap: 1rem;
+  }
+
+  ul {
+    gap: 0.5rem;
+  }
+</style>
 
 <body>
   <img class="background" src="/images/double_typhoon.webp" />
 
   {% include header.html %}
 
-  <main id="home">{{ content }}</main>
+  <main class="home">{{ content }}</main>
 
   {% include footer.html %}
 </body>
