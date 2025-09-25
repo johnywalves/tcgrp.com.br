@@ -1,0 +1,39 @@
+
+
+<div class="group">
+  <h2>Próximos Eventos</h2>
+  <ul class="events">
+    {% for post in events reversed %}
+      {% assign week_day = post.date | date: "%u" %}
+      {% if week_day == '1' %}
+          {% assign week = 'Seg' %}
+      {% elsif week_day == '2' %}
+          {% assign week = 'Ter' %}
+      {% elsif week_day == '3' %}
+          {% assign week = 'Qua' %}
+      {% elsif week_day == '4' %}
+          {% assign week = 'Qui' %}
+      {% elsif week_day == '5' %}
+          {% assign week = 'Sex' %}
+      {% elsif week_day == '6' %}
+          {% assign week = 'Sab' %}
+      {% elsif week_day == '7' %}
+          {% assign week = 'Dom' %}
+      {% endif %}
+
+      {% assign category = post.categories | join: '' %}
+      {% if category == 'digimon' %}
+          {% assign game_name = 'Digimon Card Game' %}
+      {% elsif category == 'gundam' %}
+          {% assign game_name = 'Gundam Card Game' %}
+      {% endif %}
+
+      <li class="event" data-date="{{ post.date | date: "%Y-%m-%d" }}">
+        <h3>{{ post.date | date: "%d/%m (" }}{{ week }}{{ post.date | date: ") • %H:%M" }}</h3>
+        <small>{{ post.title }}</small>
+        <p class="store">{{ post.store }}</p>
+        <a class="game" href="/{{ category }}"><p >{{ game_name }}</p></a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

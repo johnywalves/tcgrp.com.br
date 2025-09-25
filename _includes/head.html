@@ -129,12 +129,40 @@ append: page.thumbnail %} {% endif %}
       cursor: pointer;
     }
 
+    main.home,
+    div.group,
+    ul,
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    div.group {
+      gap: 1.5rem;
+    }
+
+    ul {
+      gap: 0.5rem;
+    }
+
+    ul.events {
+      gap: 2rem;
+    }
+
+    li {
+      gap: 0.25rem;
+    }
+
     /* Content Header */
     header {
+      display: none;
     }
 
     /* Content Footer */
     footer {
+      display: none;
     }
   </style>
 </head>

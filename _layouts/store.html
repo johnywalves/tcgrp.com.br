@@ -19,7 +19,17 @@
     border: none;
     margin-top: 2rem;
   }
+
+  div.group {
+    margin-top: 2rem;
+  }
+
+  p.store {
+    display: none;
+  }
 </style>
+
+{% assign events = site.posts | where: "store", page.title %}
 
 <body>
   <img class="background" src="/images/double_typhoon.webp" alt="" />
@@ -36,7 +46,25 @@
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
     ></iframe>
+
+    {% include next_events.html %}
   </main>
 
   {% include footer.html %}
 </body>
+
+<script>
+  const today = new Date()
+  function diff(first, second) {
+    return Math.round((second - first) / (1000 * 60 * 60 * 24))
+  }
+
+  document.querySelectorAll(".event").forEach((event, index) => {
+    const eventDate = new Date(event.dataset.date)
+    const days = diff(today, eventDate)
+
+    if (days < -1 || days > 31) {
+      event.style.display = "none"
+    }
+  })
+</script>

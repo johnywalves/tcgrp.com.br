@@ -1,23 +1,9 @@
 {% include head.html %}
 
 <style>
-  main.home,
-  div.group,
-  ul,
-  li {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
   main.home {
     gap: 3rem;
     padding: 3rem 2rem;
-  }
-
-  div.group {
-    gap: 1.5rem;
   }
 
   picture.logo {
@@ -31,16 +17,8 @@
     }
   }
 
-  ul {
-    gap: 0.5rem;
-  }
-
-  ul.events {
-    gap: 2rem;
-  }
-  
-  li {
-    gap: 0.25rem;
+  a.game {
+    display: none;
   }
 </style>
 
@@ -62,38 +40,7 @@ events = posts | where: "layout", "event" %} {% assign stores = posts | where:
       <p class="description">{{ page.description }}</p>
     </div>
 
-    <div class="group">
-      <h2>Próximos Eventos</h2>
-      <ul class="events">
-        {% for post in events reversed %}
-          {% assign store = stores | where: "slug", post.store %}
-
-          {% assign week_day = post.date | date: "%u" %}
-          {% if week_day == '1' %}
-              {% assign week = 'Seg' %}
-          {% elsif week_day == '2' %}
-              {% assign week = 'Ter' %}
-          {% elsif week_day == '3' %}
-              {% assign week = 'Qua' %}
-          {% elsif week_day == '4' %}
-              {% assign week = 'Qui' %}
-          {% elsif week_day == '5' %}
-              {% assign week = 'Sex' %}
-          {% elsif week_day == '6' %}
-              {% assign week = 'Sab' %}
-          {% elsif week_day == '7' %}
-              {% assign week = 'Dom' %}
-          {% endif %}
-
-          <li class="event" data-date="{{ post.date | date: "%Y-%m-%d" }}">
-            <h3>{{ post.date | date: "%d/%m (" }}{{ week }}{{ post.date | date: ") • %H:%M" }}</h3>
-            <small>{{ post.title }}</small>
-            <p>{{ post.store }}</p>
-          </li>
-        {% endfor %}
-
-      </ul>
-    </div>
+    {% include next_events.html %}
 
     <div class="group">
       <h2>Lojas</h2>
@@ -115,17 +62,17 @@ events = posts | where: "layout", "event" %} {% assign stores = posts | where:
 <script>
   const today = new Date()
   function diff(first, second) {
-      return Math.round((second - first) / (1000 * 60 * 60 * 24))
+    return Math.round((second - first) / (1000 * 60 * 60 * 24))
   }
-  
+
   document.querySelectorAll(".event").forEach((event, index) => {
     const eventDate = new Date(event.dataset.date)
     const days = diff(today, eventDate)
 
     if (days < -1 || days > 31) {
-      event.style.display = 'none'
+      event.style.display = "none"
     } else if (days > 15 && index !== 0) {
-      event.style.opacity = '0.6'
+      event.style.opacity = "0.6"
     }
   })
 </script>
