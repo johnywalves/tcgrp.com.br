@@ -1,5 +1,8 @@
 ---
 layout: event
 date: 2025-10-04 14:30:00 -0300
+title: Campeonato
 store: Forja Hobby Store
+categories:
+  - digimon
 ---

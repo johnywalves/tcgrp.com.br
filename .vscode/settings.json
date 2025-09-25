@@ -1,5 +1,12 @@
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "cSpell.words": ["digimon", "endfor", "github", "johnywalves", "tcgrp"]
+  "cSpell.words": [
+    "digimon",
+    "endfor",
+    "github",
+    "gundam",
+    "johnywalves",
+    "tcgrp"
+  ]
 }

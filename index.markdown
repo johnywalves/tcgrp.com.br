@@ -2,55 +2,10 @@
 layout: home
 ---
 
-{% assign events = site.posts | where: "layout", "event" %}
-{% assign stores = site.posts | where: "layout", "store" %}
+<a href="/digimon">
+  <img src="/images/logo_digimon.svg" width="450">
+</a>
 
-<div class="group">
-  <img src="/images/logo_digimon.svg" width="250">
-  <p class="description">Encontre facilmente torneios, dias de jogo casual e lojas que apoiam o Digimon Card Game em São José do Rio Preto e região</p>
-</div>
-
-<div class="group">
-  <h2>Próximos Eventos</h2>
-  <ul>
-    {% for post in events reversed %}
-      {% assign store = stores | where: "slug", post.store %}
-
-      {% assign week_day = post.date | date: "%u" %}
-      {% if week_day == '1' %}
-          {% assign week = 'Seg' %}
-      {% elsif week_day == '2' %}
-          {% assign week = 'Ter' %}
-      {% elsif week_day == '3' %}
-          {% assign week = 'Qua' %}
-      {% elsif week_day == '4' %}
-          {% assign week = 'Qui' %}
-      {% elsif week_day == '5' %}
-          {% assign week = 'Sex' %}
-      {% elsif week_day == '6' %}
-          {% assign week = 'Sab' %}
-      {% elsif week_day == '7' %}
-          {% assign week = 'Dom' %}
-      {% endif %}
-
-      <li data-date="{{ post.date | date: "%y-%m-%d" }}">
-        <h3>{{ post.date | date: "%d/%m (" }}{{ week }}{{ post.date | date: ") • %H:%M" }}</h3>
-        <p>{{ post.store }}</p>
-      </li>
-    {% endfor %}
-
-  </ul>
-</div>
-
-<div class="group">
-  <h2>Lojas</h2>
-  <ul>
-    {% for post in stores reversed %}
-      <li>
-        <a href="{{ post.url | relative_url }}">
-          <h3>{{ post.title }}</h3>
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
-</div>
+<a href="/gundam">
+  <img src="/images/logo_gundam.png" width="325">
+</a>
