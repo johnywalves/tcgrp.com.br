@@ -36,9 +36,10 @@ append: page.thumbnail %} {% endif %}
   <meta name="twitter:description" content="{{page.description}}" />
   <meta name="twitter:image" content="{{ thumbnail }}" />
 
+  <link rel="icon" href="{{ site.baseurl }}/favicon.ico" type="image/ico" />
   <link
     rel="icon"
-    href="{{ site.baseurl }}/images/favicon.png"
+    href="{{ site.baseurl }}/favicon-32x32.png"
     type="image/png"
   />
 
@@ -94,24 +95,30 @@ append: page.thumbnail %} {% endif %}
       z-index: -1;
     }
 
-    & h2 {
+    h2 {
       font-size: 2.75rem;
       font-weight: 400;
       text-align: center;
     }
 
-    & h3 {
+    h3 {
       font-size: 2rem;
       text-align: center;
     }
 
-    & p {
+    p {
       font-size: 1.5rem;
       font-weight: 300;
+      text-align: center;
     }
 
-    & a,
-    & a:visited {
+    p.description {
+      min-width: 80%;
+      max-width: 32rem;
+    }
+
+    a,
+    a:visited {
       text-decoration: none;
       color: inherit;
     }

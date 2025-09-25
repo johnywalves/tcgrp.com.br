@@ -6,6 +6,11 @@ layout: home
 {% assign stores = site.posts | where: "layout", "store" %}
 
 <div class="group">
+  <img src="/images/logo_digimon.svg" width="250">
+  <p class="description">Encontre facilmente torneios, dias de jogo casual e lojas que apoiam o Digimon Card Game em São José do Rio Preto e região</p>
+</div>
+
+<div class="group">
   <h2>Próximos Eventos</h2>
   <ul>
     {% for post in events reversed %}
