@@ -6,23 +6,32 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 0.5rem;
+
+    padding: 3rem 2rem;
+  }
+
+  iframe {
+    display: block;
+    max-width: 600px;
+    width: 100%;
+    height: 450px;
+    border: none;
+    margin-top: 2rem;
   }
 </style>
 
 <body>
-  <img class="background" src="/images/double_typhoon.webp" />
+  <img class="background" src="/images/double_typhoon.webp" alt="" />
 
   {% include header.html %}
 
   <main class="store">
     <h1>{{ page.title }}</h1>
-
+    <p>{{ page.address }}</p>
     <iframe
       src="{{ page.google }}"
-      width="600"
-      height="450"
-      style="border: 0"
+      title="Localização {{ page.title }}"
       allowfullscreen=""
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"

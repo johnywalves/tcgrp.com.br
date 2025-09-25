@@ -1,4 +1,5 @@
 {% include head.html %}
+
 <style>
   main.home,
   div.group,
@@ -12,15 +13,19 @@
 
   main.home {
     gap: 3rem;
-    padding: 2rem;
+    padding: 3rem 2rem;
   }
 
   div.group {
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   ul {
     gap: 0.5rem;
+  }
+
+  li {
+    gap: 0.25rem;
   }
 
   ul.events {
@@ -28,18 +33,18 @@
   }
 </style>
 
-{% assign posts = site.posts | where: "categories", page.game %}
-{% assign events = posts | where: "layout", "event" %}
-{% assign stores = posts | where: "layout", "store" %}
+{% assign posts = site.posts | where: "categories", page.game %} {% assign
+events = posts | where: "layout", "event" %} {% assign stores = posts | where:
+"layout", "store" %}
 
 <body>
-  <img class="background" src="/images/{{ page.background }}.webp" />
+  <img class="background" src="/images/{{ page.background }}.webp" alt="" />
 
   {% include header.html %}
 
   <main class="home">
     <div class="group">
-      <img src="/images/{{ page.logo }}" width="250">
+      <img src="/images/{{ page.logo }}" width="250" alt="{{ page.title }}" />
       <p class="description">{{ page.description }}</p>
     </div>
 
@@ -66,7 +71,7 @@
               {% assign week = 'Dom' %}
           {% endif %}
 
-          <li data-date="{{ post.date | date: "%y-%m-%d" }}">
+          <li class="event" data-date="{{ post.date | date: "%Y-%m-%d" }}">
             <h3>{{ post.date | date: "%d/%m (" }}{{ week }}{{ post.date | date: ") • %H:%M" }}</h3>
             <small>{{ post.title }}</small>
             <p>{{ post.store }}</p>
@@ -80,11 +85,11 @@
       <h2>Lojas</h2>
       <ul>
         {% for post in stores reversed %}
-          <li>
-            <a href="{{ post.url | relative_url }}">
-              <h3>{{ post.title }}</h3>
-            </a>
-          </li>
+        <li>
+          <a href="{{ post.url | relative_url }}">
+            <h3>{{ post.title }}</h3>
+          </a>
+        </li>
         {% endfor %}
       </ul>
     </div>
@@ -92,3 +97,21 @@
 
   {% include footer.html %}
 </body>
+
+<script>
+  const today = new Date()
+  function diff(first, second) {
+      return Math.round((second - first) / (1000 * 60 * 60 * 24))
+  }
+  
+  document.querySelectorAll(".event").forEach((event, index) => {
+    const eventDate = new Date(event.dataset.date)
+    const days = diff(today, eventDate)
+
+    if (days < -1) {
+      event.style.display = 'none'
+    } else if (days > 15 && index !== 0) {
+      event.style.opacity = '0.6'
+    }
+  })
+</script>

@@ -9,7 +9,7 @@ github_username: johnywalves
 
 # Config
 future: true
-permalink: /:title.html
+permalink: /:title
 timezone: America/Sao_Paulo
 
 # Build settings
