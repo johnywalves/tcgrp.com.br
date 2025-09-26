@@ -1,10 +1,10 @@
 title: TCG Rio Preto e Região
 email: contato@johnywalves.com.br
-description: >- # this means to ignore newlines until "baseurl:"
+description: >-
   Coleção de informações sobre eventos e locais de suporte da comunidade TCG
   em São José do Rio Preto e Região
-baseurl: "" # the subpath of your site, e.g. /blog
-url: tcgrp.com.br
+url: https://tcgrp.com.br
+baseurl: ""
 github_username: johnywalves
 
 # Config

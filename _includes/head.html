@@ -1,8 +1,9 @@
 {% assign title = page.title %} {% if page.title %} {% assign title = title |
 append: " | " %} {% endif %} {% assign title = title | append: site.title %} {%
-assign thumbnail = site.baseurl | append: "/images/thumbnail.jpg" %} {% if
-page.thumbnail %} {% assign thumbnail = site.baseurl | append: "/images/" |
-append: page.thumbnail %} {% endif %}
+assign thumbnail = site.url | append: site.baseurl | append:
+"/images/thumbnail.jpg" %} {% if page.thumbnail %} {% assign thumbnail =
+site.url | append: site.baseurl | append: "/images/" | append: page.thumbnail %}
+{% endif %}
 
 <head>
   <meta charset="UTF-8" />
@@ -12,34 +13,38 @@ append: page.thumbnail %} {% endif %}
   <meta name="theme-color" content="#991f1c" />
 
   <title>{{ title }}</title>
-  <meta
-    name="description"
-    property="og:description"
-    content="{{ site.description }}"
-  />
-  <meta name="keywords" content="{{ page.keywords }}" />
-  <meta
-    name="image"
-    property="og:image"
-    itemprop="image"
-    content="{{ thumbnail }}"
-  />
-  <meta name="type" property="og:type" content="website" />
-  <meta name="url" property="og:url" content="{{page.url}}" />
-  <meta name="site_name" property="og:site_name" content="{{ title }}" />
+  <meta name="name" content="{{ title }}" />
+  <meta name="description" content="{{ site.description }}" />
 
-  <meta name="locale" property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="website" />
+  <meta
+    property="og:url"
+    content="{{ site.url }}{{ site.baseurl }}{{page.url}}"
+  />
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:description" content="{{ site.description }}" />
+  <meta property="og:image" content="{{ thumbnail }}" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="{{ site.baseurl }}/{{page.url}}" />
+  <meta
+    name="twitter:url"
+    content="{{ site.url }}{{ site.baseurl }}{{page.url}}"
+  />
   <meta name="twitter:title" content="{{ title }}" />
   <meta name="twitter:description" content="{{page.description}}" />
   <meta name="twitter:image" content="{{ thumbnail }}" />
 
-  <link rel="icon" href="{{ site.baseurl }}/favicon.ico" type="image/ico" />
+  <meta name="locale" property="og:locale" content="pt_BR" />
+  <meta name="keywords" content="{{ page.keywords }}" />
+
   <link
     rel="icon"
-    href="{{ site.baseurl }}/favicon-32x32.png"
+    href="{{ site.url }}{{ site.baseurl }}/favicon.ico"
+    type="image/ico"
+  />
+  <link
+    rel="icon"
+    href="{{ site.url }}{{ site.baseurl }}/favicon-32x32.png"
     type="image/png"
   />
 
