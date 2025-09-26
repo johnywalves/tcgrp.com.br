@@ -23,9 +23,9 @@
 
       {% assign category = post.categories | join: '' %}
       {% if category == 'digimon' %}
-          {% assign game_name = 'Digimon Card Game' %}
+          {% assign game_name = 'Digimon' %}
       {% elsif category == 'gundam' %}
-          {% assign game_name = 'Gundam Card Game' %}
+          {% assign game_name = 'Gundam' %}
       {% endif %}
 
       <li class="event" data-date="{{ post.date | date: "%Y-%m-%d" }}">
