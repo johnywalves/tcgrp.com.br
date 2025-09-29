@@ -2,10 +2,20 @@
 layout: home
 ---
 
-<a href="/digimon">
-  <img src="/images/logo_digimon.svg" width="450">
-</a>
+<div class="group">
+  <p class="description">{{ site.description }}</p>
+</div>
 
-<a href="/gundam">
-  <img src="/images/logo_gundam.png" width="325">
-</a>
+<div class="group">
+  <a href="/digimon">
+    <img src="/images/logo_digimon.svg" width="450">
+  </a>
+
+  <a href="/gundam">
+    <img src="/images/logo_gundam.png" width="250">
+  </a>
+</div>
+
+{% assign events = site.posts | where: "layout", "event" %}
+
+{% include next_events.html %}

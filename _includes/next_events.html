@@ -31,8 +31,18 @@
       <li class="event" data-date="{{ post.date | date: "%Y-%m-%d" }}">
         <h3>{{ post.date | date: "%d/%m (" }}{{ week }}{{ post.date | date: ") • %H:%M" }}</h3>
         <small>{{ post.title }}</small>
-        <p class="store">{{ post.store }}</p>
-        <a class="game" href="/{{ category }}"><p >{{ game_name }}</p></a>
+          <div class="store">
+            {% assign stores_event = site.posts | where: "title", post.store %}
+            {% for store in stores_event reversed %}
+              <a href="{{ store.url | relative_url }}">
+                <p class="store">{{ store.title }}</p>
+              </a>
+            {% endfor %}
+          </div>
+
+          <a class="game" href="/{{ category }}">
+            <p>{{ game_name }}</p>
+          </a>
       </li>
     {% endfor %}
   </ul>
