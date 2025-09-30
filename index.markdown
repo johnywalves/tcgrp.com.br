@@ -6,7 +6,7 @@ layout: home
   <p class="description">{{ site.description }}</p>
 </div>
 
-<div class="group">
+<div class="group games">
   <a href="/digimon">
     <img src="/images/logo_digimon.svg" width="450">
   </a>

@@ -86,8 +86,8 @@ site.url | append: site.baseurl | append: "/images/" | append: page.thumbnail %}
 
     main {
       z-index: 0;
-      min-height: calc(100vh - 4rem);
-      min-height: calc(100dvh - 4rem);
+      min-height: calc(100vh - 8rem);
+      min-height: calc(100dvh - 8rem);
     }
 
     img.background {
@@ -122,6 +122,10 @@ site.url | append: site.baseurl | append: "/images/" | append: page.thumbnail %}
       max-width: 32rem;
     }
 
+    p.separator {
+      font-size: 2rem;
+    }
+
     a,
     a:visited {
       text-decoration: none;
@@ -149,7 +153,7 @@ site.url | append: site.baseurl | append: "/images/" | append: page.thumbnail %}
     }
 
     ul {
-      gap: 0.5rem;
+      gap: 0.75rem;
     }
 
     ul.events {
@@ -177,7 +181,38 @@ site.url | append: site.baseurl | append: "/images/" | append: page.thumbnail %}
 
     /* Content Footer */
     footer {
-      display: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      height: 4rem;
+      padding: 1rem;
+    }
+
+    footer a,
+    footer a:visited,
+    footer a:hover,
+    footer p {
+      text-decoration: none;
+      color: inherit;
+
+      font-size: 1rem;
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    footer a,
+    footer a:visited,
+    footer p {
+      opacity: 0.75;
+    }
+
+    footer a:hover {
+      opacity: 1;
+    }
+
+    footer a:hover span {
+      color: #e0138c;
     }
   </style>
 </head>
