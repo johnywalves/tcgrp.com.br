@@ -1,7 +1,7 @@
 
 
 <div class="group">
-  <h2>Próximos Eventos</h2>
+  <h2>Próximos Torneios</h2>
   <ul class="events">
     {% for post in events reversed %}
       {% assign week_day = post.date | date: "%u" %}
@@ -23,9 +23,9 @@
 
       {% assign category = post.categories | join: '' %}
       {% if category == 'digimon' %}
-          {% assign game_name = 'Digimon' %}
+          {% assign game_name = 'Digimon TCG' %}
       {% elsif category == 'gundam' %}
-          {% assign game_name = 'Gundam' %}
+          {% assign game_name = 'Gundam TCG' %}
       {% endif %}
 
       {% assign month_day = post.date | date: "%d" %}
@@ -37,21 +37,20 @@
       {% assign month_day_prev = post.date | date: "%d" %}
 
       <li class="event" data-game="{{ category }}"  data-date="{{ post.date | date: "%Y-%m-%d" }}">
+        <a href="/{{ category }}">
+          <p><span class="game">{{ game_name }}{% if post.type  %} • {% endif %}</span>{{ post.type }}</p>
+        </a>
+
         <h3>{{ post.date | date: "%d/%m (" }}{{ week }}{{ post.date | date: ") • %H:%M" }}</h3>
-        <small>{{ post.title }}</small>
-          <div class="store">
-            {% assign stores_event = site.posts | where: "title", post.store %}
-            {% for store in stores_event reversed %}
-              <a href="{{ store.url | relative_url }}">{% assign week_day_prev = post.date | date: "%u" %}
 
-                <p class="store">{{ store.title }}</p>
-              </a>
-            {% endfor %}
-          </div>
-
-          <a class="game" href="/{{ category }}">
-            <p>{{ game_name }}</p>
-          </a>
+        <div class="store">
+          {% assign stores_event = site.posts | where: "title", post.store %}
+          {% for store in stores_event reversed %}
+            <a href="{{ store.url | relative_url }}">
+              <p class="store">{{ store.title }}</p>
+            </a>
+          {% endfor %}
+        </div>
       </li>
     {% endfor %}
   </ul>

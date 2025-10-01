@@ -32,7 +32,10 @@
 {% assign events = site.posts | where: "store", page.title %}
 
 <body>
-  <img class="background" src="/images/double_typhoon.webp" alt="" />
+  {% assign background_image = "double_typhoon.webp" %} {% if page.background %}
+  {% assign background_image = page.background %} {% endif %}
+
+  <img class="background" src="/images/{{ background_image }}" alt="" />
 
   {% include header.html %}
 

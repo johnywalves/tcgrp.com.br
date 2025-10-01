@@ -8,11 +8,11 @@ layout: home
 
 <div class="group games">
   <a href="/digimon">
-    <img src="/images/logo_digimon.svg" width="450">
+    <img src="/logos/digimon.svg" width="450">
   </a>
 
   <a href="/gundam">
-    <img src="/images/logo_gundam.png" width="250">
+    <img src="/logos/gundam.png" width="250">
   </a>
 </div>
 

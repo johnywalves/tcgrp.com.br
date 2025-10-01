@@ -17,7 +17,7 @@
     }
   }
 
-  a.game {
+  span.game {
     display: none;
   }
 </style>
@@ -34,7 +34,7 @@ events = posts | where: "layout", "event" %} {% assign stores = posts | where:
   <main class="home">
     <div class="group">
       <picture class="logo">
-        <img src="/images/{{ page.logo }}" alt="logo {{ page.title }}" />
+        <img src="/logos/{{ page.logo }}" alt="logo {{ page.title }}" />
       </picture>
 
       <p class="description">{{ page.description }}</p>
