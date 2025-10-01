@@ -1,7 +1,7 @@
 ---
 layout: event
-date: 2025-10-25 14:30:00 -0300
-title: Campeonato
+date: 2025-10-26 14:30:00 -0300
+title: GD2 Release
 store: Epic Level
 categories:
   - gundam

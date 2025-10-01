@@ -28,11 +28,13 @@
           {% assign game_name = 'Gundam' %}
       {% endif %}
 
-      {% if week_day <= week_day_prev %}
+      {% assign month_day = post.date | date: "%d" %}
+      {% if week_day <= week_day_prev and month_day != month_day_prev %}
         <p class="separator">―</p>
       {% endif %}
 
       {% assign week_day_prev = post.date | date: "%u" %}
+      {% assign month_day_prev = post.date | date: "%d" %}
 
       <li class="event" data-game="{{ category }}"  data-date="{{ post.date | date: "%Y-%m-%d" }}">
         <h3>{{ post.date | date: "%d/%m (" }}{{ week }}{{ post.date | date: ") • %H:%M" }}</h3>
@@ -40,7 +42,8 @@
           <div class="store">
             {% assign stores_event = site.posts | where: "title", post.store %}
             {% for store in stores_event reversed %}
-              <a href="{{ store.url | relative_url }}">
+              <a href="{{ store.url | relative_url }}">{% assign week_day_prev = post.date | date: "%u" %}
+
                 <p class="store">{{ store.title }}</p>
               </a>
             {% endfor %}
