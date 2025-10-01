@@ -100,6 +100,18 @@ site.url | append: site.baseurl | append: "/images/" | append: page.thumbnail %}
       z-index: -1;
     }
 
+    iframe {
+      display: block;
+      max-width: 600px;
+      width: 100%;
+      height: 360px;
+      border: none;
+      margin-top: 2rem;
+
+      background-image: url("/images/map_placeholder.png");
+      background-size: cover;
+    }
+
     h2 {
       font-size: 2.75rem;
       font-weight: 400;
@@ -139,6 +151,7 @@ site.url | append: site.baseurl | append: "/images/" | append: page.thumbnail %}
     }
 
     main.home,
+    div.title,
     div.group,
     ul,
     li {
@@ -146,6 +159,10 @@ site.url | append: site.baseurl | append: "/images/" | append: page.thumbnail %}
       flex-direction: column;
       justify-content: center;
       align-items: center;
+    }
+
+    div.title {
+      gap: 0.5rem;
     }
 
     div.group {

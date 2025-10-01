@@ -36,7 +36,11 @@
       {% assign week_day_prev = post.date | date: "%u" %}
       {% assign month_day_prev = post.date | date: "%d" %}
 
-      <li class="event" data-game="{{ category }}"  data-date="{{ post.date | date: "%Y-%m-%d" }}">
+      <li class="event" 
+        data-game="{{ category }}"
+        data-date="{{ post.date | date: "%Y-%m-%d" }}"
+        data-store="{{ store.title }}"
+      >
         <a href="/{{ category }}">
           <p><span class="game">{{ game_name }}{% if post.type  %} • {% endif %}</span>{{ post.type }}</p>
         </a>

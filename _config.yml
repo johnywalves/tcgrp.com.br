@@ -16,3 +16,4 @@ timezone: America/Sao_Paulo
 # Build settings
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
