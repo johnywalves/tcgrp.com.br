@@ -6,7 +6,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1.5rem;
 
     padding: 1rem 1rem 3rem;
   }
@@ -32,7 +32,16 @@
 
   <main class="store">
     <h1>{{ page.title }}</h1>
+
     <p>{{ page.address }}</p>
+
+    <a href="https://www.instagram.com/{{ page.instagram }}/" target="_blank">
+      <p>Instagram<br /><strong>@{{ page.instagram }}</strong></p>
+    </a>
+
+    <a href="https://{{ page.website }}/" target="_blank">
+      <p>Página<br /><strong>{{ page.website }}</strong></p>
+    </a>
 
     {% if page.google %}
     <iframe
