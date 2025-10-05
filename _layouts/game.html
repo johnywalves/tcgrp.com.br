@@ -40,21 +40,7 @@ events = posts | where: "layout", "event" %} {% assign stores = posts | where:
       <p class="description">{{ page.description }}</p>
     </div>
 
-    {% include next_events.html %}
-
-    <div class="group">
-      <h2>Lojas</h2>
-      <ul>
-        {% for post in stores reversed %}
-        <li>
-          <a href="{{ post.url | relative_url }}">
-            <h3>{{ post.title }}</h3>
-            <p>{{ post.city }}</p>
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
+    {% include next_events.html %} {% include list_stores.html %}
   </main>
 
   {% include footer.html %}

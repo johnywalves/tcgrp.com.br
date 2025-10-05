@@ -1,0 +1,13 @@
+<div class="group">
+  <h2>Lojas</h2>
+  <ul>
+    {% for post in stores reversed %}
+    <li>
+      <a href="{{ post.url | relative_url }}">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.city }}</p>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

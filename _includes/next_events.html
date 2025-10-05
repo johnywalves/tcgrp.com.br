@@ -28,6 +28,8 @@
           {% assign game_name = 'Gundam TCG' %}
       {% endif %}
 
+      {% assign date_format = post.date | date: "%d/%m (" | append: week | append: ")"  %}
+
       {% assign month_day = post.date | date: "%d" %}
       {% if week_day <= week_day_prev and month_day != month_day_prev %}
         <p class="separator">―</p>
@@ -36,25 +38,35 @@
       {% assign week_day_prev = post.date | date: "%u" %}
       {% assign month_day_prev = post.date | date: "%d" %}
 
-      <li class="event" 
-        data-game="{{ category }}"
-        data-date="{{ post.date | date: "%Y-%m-%d" }}"
-        data-store="{{ store.title }}"
-      >
-        <h3>{{ post.date | date: "%d/%m (" }}{{ week }}{{ post.date | date: ") • %H:%M" }}</h3>
+      <li class="date" data-date="{{ post.date | date: "%Y-%m-%d" }}">
+        {% if date_format_prev != date_format %}
+          <h3 class="date">{{ date_format }}</h3>
+        {% endif %}
 
-        <a href="/{{ category }}">
-          <p><span class="game">{{ game_name }}{% if post.type  %} • {% endif %}</span>{{ post.type }}</p>
-        </a>
+        <ul>
+          <li class="event" 
+            data-game="{{ category }}"
+            data-date="{{ post.date | date: "%Y-%m-%d" }}"
+            data-store="{{ store.title }}"
+          >
+            <h4>{{ post.date | date: "%H:%M" }}</h4>
 
-        <div class="store">
-          {% assign stores_event = site.posts | where: "title", post.store %}
-          {% for store in stores_event reversed %}
-            <a href="{{ store.url | relative_url }}">
-              <p class="store">{{ store.title }}</p>
+            <a href="/{{ category }}">
+              <p><span class="game">{{ game_name }}{% if post.type  %} • {% endif %}</span>{{ post.type }}</p>
             </a>
-          {% endfor %}
-        </div>
+
+            <div class="store">
+              {% assign stores_event = site.posts | where: "title", post.store %}
+              {% for store in stores_event reversed %}
+                <a href="{{ store.url | relative_url }}">
+                  <p class="store">{{ store.title }}</p>
+                </a>
+              {% endfor %}
+            </div>
+          </li>
+        </ul>
+
+        {% assign date_format_prev = date_format %}
       </li>
     {% endfor %}
   </ul>
