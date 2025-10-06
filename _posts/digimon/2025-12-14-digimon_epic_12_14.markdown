@@ -1,0 +1,8 @@
+---
+layout: event
+date: 2025-12-14 14:30:00 -0300
+type: Evolution Cup
+store: Epic Level
+categories:
+  - digimon
+---

@@ -1,0 +1,7 @@
+---
+layout: event
+date: 2025-11-16 14:30:00 -0300
+store: Epic Level
+categories:
+  - gundam
+---

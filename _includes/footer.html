@@ -28,7 +28,7 @@
     const eventDate = new Date(event.dataset.date)
     const days = diff(today, eventDate)
 
-    if (days < -1 || days > 31) {
+    if (days < -1) {
       event.style.display = "none"
     }
   })
