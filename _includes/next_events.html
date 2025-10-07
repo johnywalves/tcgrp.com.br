@@ -1,62 +1,35 @@
 
 
-<div class="group">
+<div id="torneios" class="group">
   <h2>Próximos Torneios</h2>
   <ul class="events">
-    {% for post in events reversed %}
-      {% assign week_day = post.date | date: "%u" %}
-      {% if week_day == '1' %}
-          {% assign week = 'Seg' %}
-      {% elsif week_day == '2' %}
-          {% assign week = 'Ter' %}
-      {% elsif week_day == '3' %}
-          {% assign week = 'Qua' %}
-      {% elsif week_day == '4' %}
-          {% assign week = 'Qui' %}
-      {% elsif week_day == '5' %}
-          {% assign week = 'Sex' %}
-      {% elsif week_day == '6' %}
-          {% assign week = 'Sab' %}
-      {% elsif week_day == '7' %}
-          {% assign week = 'Dom' %}
-      {% endif %}
+    {% for event in events reversed %}
+      {% include event_treated.html %}
 
-      {% assign category = post.categories | join: '' %}
-      {% if category == 'digimon' %}
-          {% assign game_name = 'Digimon TCG' %}
-      {% elsif category == 'gundam' %}
-          {% assign game_name = 'Gundam TCG' %}
-      {% endif %}
-
-      {% assign date_format = post.date | date: "%d/%m (" | append: week | append: ")"  %}
-
-      {% assign month_day = post.date | date: "%d" %}
       {% if week_day <= week_day_prev and month_day != month_day_prev %}
         <p class="separator">―</p>
       {% endif %}
 
-      {% assign week_day_prev = post.date | date: "%u" %}
-      {% assign month_day_prev = post.date | date: "%d" %}
-
-      <li class="date" data-date="{{ post.date | date: "%Y-%m-%d" }}">
-        {% if date_format_prev != date_format %}
-          <h3 class="date">{{ date_format }}</h3>
-        {% endif %}
+      {% if date_format_prev != date_format %}   
+      <li id="{{ event.date | date: "%Y-%m-%d" }}" class="date" data-date="{{ event.date | date: "%Y-%m-%d" }}">
+        <h3 class="date">{{ date_format }}</h3>
+      {% endif %}
 
         <ul>
           <li class="event" 
             data-game="{{ category }}"
-            data-date="{{ post.date | date: "%Y-%m-%d" }}"
+            data-date="{{ event.date | date: "%Y-%m-%d" }}"
             data-store="{{ store.title }}"
           >
-            <h4>{{ post.date | date: "%H:%M" }}</h4>
+            <a href="{{ event.url | relative_url }}">
+              <h4>{{ event.date | date: "%H:%M" }}</h4>
+            </a>
 
             <a href="/{{ category }}">
-              <p><span class="game">{{ game_name }}{% if post.type  %} • {% endif %}</span>{{ post.type }}</p>
+              <p><span class="game">{{ game_name }}{% if event.type  %} • {% endif %}</span>{{ event.type }}</p>
             </a>
 
             <div class="store">
-              {% assign stores_event = site.posts | where: "title", post.store %}
               {% for store in stores_event reversed %}
                 <a href="{{ store.url | relative_url }}">
                   <p class="store">{{ store.title }}</p>
@@ -66,8 +39,14 @@
           </li>
         </ul>
 
-        {% assign date_format_prev = date_format %}
+    {% if date_format_prev != date_format %}
       </li>
+    {% endif %}
+
+    {% assign week_day_prev = week_day %}
+    {% assign month_day_prev = month_day %}
+    {% assign date_format_prev = date_format %}
+
     {% endfor %}
   </ul>
 </div>

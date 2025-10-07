@@ -1,45 +1,35 @@
-{% include head.html %}
+{% assign event = page %} {% include event_treated.html %} {% include head.html
+%}
 
 <body>
-  {% assign category = page.categories | join: '' %}
-
   <img class="background" src="/backgrounds/{{ category }}.webp" alt="" />
 
   {% include header.html %}
 
   <main class="home">
-    {% if category == 'digimon' %} {% assign game_name = 'Digimon TCG' %} {%
-    elsif category == 'gundam' %} {% assign game_name = 'Gundam TCG' %} {% endif
-    %} {% assign week_day = page.date | date: "%u" %} {% if week_day == '1' %}
-    {% assign week = 'Seg' %} {% elsif week_day == '2' %} {% assign week = 'Ter'
-    %} {% elsif week_day == '3' %} {% assign week = 'Qua' %} {% elsif week_day
-    == '4' %} {% assign week = 'Qui' %} {% elsif week_day == '5' %} {% assign
-    week = 'Sex' %} {% elsif week_day == '6' %} {% assign week = 'Sab' %} {%
-    elsif week_day == '7' %} {% assign week = 'Dom' %} {% endif %}
-
     <div class="group">
-      <a href="/{{ category }}">
-        <p>
-          <span class="game">
-            {{ game_name }}{% if post.type %} • {% endif %}
-          </span>
-          {{ post.type }}
-        </p>
-      </a>
+      <div class="store">
+        <h3>
+          <span>{{ date_format }}{{ event.date | date: " • %H:%M" }}</span>
+        </h3>
 
-      <h3>
-        <span>{{ page.date | date: "%d/%m (" }}</span>
-        <span>{{ week }}</span>
-        <span>{{ page.date | date: ") • %H:%M" }}</span>
-      </h3>
+        <a href="/{{ category }}">
+          <p>{{ game_name }}</p>
+        </a>
+
+        {% if event.type %}
+        <p>{{ event.type }}</p>
+        {% endif %}
+      </div>
 
       <div class="store">
-        {% assign stores_event = site.posts | where: "title", page.store %} {%
-        for store in stores_event reversed %}
+        {% for store in stores_event reversed %}
         <a href="{{ store.url | relative_url }}">
-          <p class="store">{{ store.title }}</p>
+          <h3 class="store">{{ store.title }}</h3>
         </a>
+
         <p class="description">{{ store.address }}</p>
+
         <iframe
           src="{{ store.google }}"
           title="Localização {{ page.title }}"
@@ -50,8 +40,6 @@
         {% endfor %}
       </div>
     </div>
-
-    {{ content }}
   </main>
 
   {% include footer.html %}

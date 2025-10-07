@@ -1,0 +1,11 @@
+{% assign category = event.categories | join: '' %} {% if category == 'digimon'
+%} {% assign game_name = 'Digimon TCG' %} {% elsif category == 'gundam' %} {%
+assign game_name = 'Gundam TCG' %} {% endif %} {% assign week_day = event.date |
+date: "%u" %} {% if week_day == '1' %} {% assign week = 'Seg' %} {% elsif
+week_day == '2' %} {% assign week = 'Ter' %} {% elsif week_day == '3' %} {%
+assign week = 'Qua' %} {% elsif week_day == '4' %} {% assign week = 'Qui' %} {%
+elsif week_day == '5' %} {% assign week = 'Sex' %} {% elsif week_day == '6' %}
+{% assign week = 'Sab' %} {% elsif week_day == '7' %} {% assign week = 'Dom' %}
+{% endif %} {% assign month_day = event.date | date: "%d" %} {% assign
+date_format = event.date | date: "%d/%m (" | append: week | append: ")" %} {%
+assign stores_event = site.posts | where: "title", event.store %}

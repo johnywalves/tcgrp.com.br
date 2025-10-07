@@ -1,5 +1,5 @@
 ---
-permalink: /about/
+permalink: /sobre/
 layout: home
 title: Sobre
 ---

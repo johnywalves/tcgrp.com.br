@@ -1,16 +1,21 @@
-{% assign title = page.title %} {% if page.title %} {% assign title = title |
-append: " | " %} {% endif %} {% assign title = title | append: site.title %} {%
-assign thumbnail = site.url | append: site.baseurl | append:
-"/images/thumbnail.jpg" %} {% if page.thumbnail %} {% assign thumbnail =
-site.url | append: site.baseurl | append: "/images/" | append: page.thumbnail %}
-{% endif %}
-
 <head>
   <meta charset="UTF-8" />
   <meta name="robots" content="index, follow" />
+
+  {% assign title = page.title %}
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  {% if page.layout == "event" %} {% assign title = game_name | append: " • " |
+  append: date_format | append: " • " | append: page.store %} {% endif %}
+
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  {% if title %} {% assign title = title | append: " | " %} {% endif %}
+
   <meta name="theme-color" content="#991f1c" />
+
+  {% assign title = title | append: site.title %}
 
   <title>{{ title }}</title>
   <meta name="name" content="{{ title }}" />
@@ -23,6 +28,12 @@ site.url | append: site.baseurl | append: "/images/" | append: page.thumbnail %}
   />
   <meta property="og:title" content="{{ title }}" />
   <meta property="og:description" content="{{ site.description }}" />
+
+  {% assign thumbnail = site.url | append: site.baseurl | append:
+  "/images/thumbnail.jpg" %} {% if page.thumbnail %} {% assign thumbnail =
+  site.url | append: site.baseurl | append: "/images/" | append: page.thumbnail
+  %} {% endif %}
+
   <meta property="og:image" content="{{ thumbnail }}" />
 
   <meta name="twitter:card" content="summary_large_image" />
