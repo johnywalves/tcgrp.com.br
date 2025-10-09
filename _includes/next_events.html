@@ -33,6 +33,7 @@
               {% for store in stores_event reversed %}
                 <a href="{{ store.url | relative_url }}">
                   <p class="store">{{ store.title }}</p>
+                  <small class="store">{{ store.city }}</small>
                 </a>
               {% endfor %}
             </div>
