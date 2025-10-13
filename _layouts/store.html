@@ -18,6 +18,10 @@
   div.store {
     display: none;
   }
+
+  iframe {
+    width: calc(100% - 1rem);
+  }
 </style>
 
 {% assign events = site.posts | where: "store", page.title %}
