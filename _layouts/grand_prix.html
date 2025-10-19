@@ -10,25 +10,64 @@
     padding: 1rem 1rem 3rem;
   }
 
-  p {
-    font-size: 1.5rem;
-    font-weight: 300;
-    min-width: 80%;
-    max-width: 32rem;
+  picture.logo {
+    width: 250px;
+    height: 100px;
+    margin-bottom: -1.5rem;
+
+    & img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
   }
 
-  ol {
+  h1 {
+    font-size: 2.75rem;
+    text-align: center;
+
+    width: min(calc(100% - 2rem), 50rem);
+  }
+
+  h2 {
+    font-size: 2.25rem;
+    text-align: center;
+
+    margin-top: 2rem;
+    margin-bottom: -1rem;
+  }
+
+  main > p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-align: justify;
+
+    width: min(calc(100% - 2rem), 50rem);
+  }
+
+  ul {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
+    list-style: disc;
+  }
 
-    min-width: 80%;
-    max-width: 32rem;
+  main > ul {
+    gap: 2.5rem;
+    width: min(calc(100% - 2rem), 50rem);
+    padding-left: 1.5rem;
+  }
+
+  ul ul {
+    gap: 1rem;
+    width: calc(100% - 3rem);
+
+    margin-top: 1rem;
+    margin-left: 3rem;
   }
 
   li {
-    display: flow;
+    display: list-item;
     flex-direction: row;
     align-items: flex-start;
 
@@ -36,14 +75,44 @@
     font-weight: 300;
     text-align: left;
   }
+
+  ul ul li {
+    width: 100%;
+  }
+
+  li strong {
+    font-weight: 700;
+  }
+
+  table {
+    border-spacing: 0.5rem;
+  }
+
+  table th,
+  table td {
+    font-size: 1.5rem;
+  }
+
+  table th {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 </style>
 
 <body>
-  <img class="background" src="/images/represa_rio_preto.webp" alt="" />
+  <img class="background" src="/images/double_typhoon.webp" alt="" />
 
   {% include header.html %}
 
-  <main class="home">{{ content }}</main>
+  <main class="home">
+    <picture class="logo">
+      <img src="/logos/{{ page.logo }}" alt="logo {{ page.title }}" />
+    </picture>
+
+    <h1>{{ page.title }}</h1>
+
+    {{ content }}
+  </main>
 
   {% include footer.html %}
 </body>
