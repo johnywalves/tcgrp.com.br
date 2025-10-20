@@ -40,13 +40,13 @@
           </li>
         </ul>
 
-    {% if date_format_prev != date_format %}
-      </li>
-    {% endif %}
-
     {% assign week_day_prev = week_day %}
     {% assign month_day_prev = month_day %}
     {% assign date_format_prev = date_format %}
+
+    {% if date_format_prev != date_format %}
+      </li>
+    {% endif %}
 
     {% endfor %}
   </ul>
