@@ -28,6 +28,8 @@ Um ótima chance de apresentar e recepcionar na sua loja os jogadores da região
 
 É simples: jogue os torneios escolhidos, ganhe pontos e garanta seu lugar entre os melhores!
 
+As posições serão apuradas na classificação (_ranking_) no aplicativo [Bandai TCG Plus](https://www.bandai-tcg-plus.com/), publicado na página do circuito juntamente com decklist na semana seguinte da etapa
+
 | Posição | Pontuação |
 | :-----: | :-------: |
 |   1ª    |  12 pts   |

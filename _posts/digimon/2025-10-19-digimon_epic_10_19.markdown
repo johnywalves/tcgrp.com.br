@@ -1,8 +1,0 @@
----
-layout: event
-date: 2025-10-19 14:30:00 -0300
-type: Release Event - BT23
-store: Epic Level
-categories:
-  - digimon
----
