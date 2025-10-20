@@ -2,12 +2,13 @@
 permalink: /digimon/circuito
 layout: grand_prix
 title: Primeiro Circuito Digimon Rio Preto e Região
+description: Participe em lojas credenciadas, acumule pontos e garanta sua vaga na grande final em julho de 2026, onde os oito melhores classificados duelaram pelo título de Melhor Jogador e um prêmio especial
 logo: digimon.svg
 game: digimon
 ---
 
 Em 2026, a região de São José do Rio Preto sediará uma série de seis torneios de Digimon TCG.
-Participe em lojas credenciadas, acumule pontos e garanta sua vaga na grande final em julho, onde os oito melhores classificados duelaram pelo título de Melhor Jogador e um prêmio especial
+Participe em lojas credenciadas, acumule pontos e garanta sua vaga na grande final em julho de 2026, onde os oito melhores classificados duelaram pelo título de Melhor Jogador e um prêmio especial
 
 ## Como funciona?
 
@@ -17,7 +18,7 @@ Proposta do circuito, como vamos organizar as participações
   - As etapas deveram ocorrer nos domingos sem feriados prolongados
   - A final ocorrerá em **26/10/2026** (Domingo) em uma das lojas participantes podendo repetir para essa etapa
 - No final de cada etapa os **oito primeiros** colocados devem compartilhar a decklist, será documentado e compartilhado com a comunidade nessa plataforma
-- Final seja disputada em uma chave de **dezesseis participantes** com os participantes com maior pontuação
+- Final será disputada com **dezesseis participantes** com os participantes com maior pontuação
 
 ## Por participar como loja?
 

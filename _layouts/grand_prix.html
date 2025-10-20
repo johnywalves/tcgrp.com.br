@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
 
     padding: 1rem 1rem 3rem;
   }
@@ -22,27 +22,30 @@
     }
   }
 
-  h1 {
-    font-size: 2.75rem;
-    text-align: center;
+  h1,
+  h2,
+  main > p {
+    width: min(100%, 50rem);
+  }
 
-    width: min(calc(100% - 2rem), 50rem);
+  h1 {
+    font-size: 2.25rem;
+    text-align: center;
   }
 
   h2 {
-    font-size: 2.25rem;
-    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: left;
 
     margin-top: 2rem;
     margin-bottom: -1rem;
   }
 
   main > p {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 300;
-    text-align: justify;
-
-    width: min(calc(100% - 2rem), 50rem);
+    text-align: left;
   }
 
   ul {
@@ -53,17 +56,16 @@
   }
 
   main > ul {
-    gap: 2.5rem;
-    width: min(calc(100% - 2rem), 50rem);
-    padding-left: 1.5rem;
+    width: min(calc(100% - 1rem), 50rem);
+    gap: 1.5rem;
+    padding-left: 1rem;
   }
 
   ul ul {
-    gap: 1rem;
-    width: calc(100% - 3rem);
-
+    width: min(calc(100% - 2rem), 50rem);
+    gap: 0.5rem;
     margin-top: 1rem;
-    margin-left: 3rem;
+    margin-left: 2rem;
   }
 
   li {
@@ -71,7 +73,7 @@
     flex-direction: row;
     align-items: flex-start;
 
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 300;
     text-align: left;
   }
