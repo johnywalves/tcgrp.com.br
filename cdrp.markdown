@@ -24,6 +24,10 @@ Proposta do circuito, como vamos organizar as participações
 
 Um ótima chance de apresentar e recepcionar na sua loja os jogadores da região
 
+Vamos marcar a data para a etapa em sua loja, os prêmios que deseja adicionar para final e divulgar nas suas redes
+
+Podemos organizar eventos para ensinar o jogo para novos participantes
+
 ## Como participar como jogador ?
 
 É simples: jogue os torneios escolhidos, ganhe pontos e garanta seu lugar entre os melhores!
@@ -41,6 +45,8 @@ As posições serão apuradas na classificação (_ranking_) no aplicativo [Band
 |   7ª    |   3 pts   |
 |   8ª    |   2 pts   |
 | Outras  |   1 pt    |
+
+Caso você se classifique entre os oito primeiros, basta apresentar seu deck para o responsável no evento e esperar para as próximas etapas
 
 ## Alguma dúvida ou sugestão?
 
