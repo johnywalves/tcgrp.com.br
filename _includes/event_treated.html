@@ -7,7 +7,5 @@ assign week = 'Qua' %} {% elsif week_day == '4' %} {% assign week = 'Qui' %} {%
 elsif week_day == '5' %} {% assign week = 'Sex' %} {% elsif week_day == '6' %}
 {% assign week = 'Sab' %} {% elsif week_day == '7' %} {% assign week = 'Dom' %}
 {% endif %} {% assign month_day = event.date | date: "%d" %} {% assign
-date_format = event.date | date: "%d/%m (" | append: week | append: ")" %} {%
-assign stores_event = site.posts | where: "title", event.store %} {% assign
-game_pages = site.pages | where_exp: "page", "page.game == category and
-page.layout == 'game' " %}
+date_format = event.date | date: "%d/%m (" | append: week | append: ")" %}
+{%assign stores_event = site.posts | where: "title", event.store %}
