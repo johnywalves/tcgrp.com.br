@@ -5,7 +5,7 @@
       {% include event_treated.html %}
 
       {% if week_day <= week_day_prev and month_day != month_day_prev %}
-        <p class="separator">― &bigstar; ―</p>
+        <p class="separator">― • ―</p>
       {% endif %}
 
       {% if date_format_prev != date_format %}
@@ -32,7 +32,7 @@
         <a href="/{{ category }}">
           <p>
             <span class="game">
-              {{ game_name }}
+              {{ game.title }}
               {%- if event.type %} • {% endif -%}
             </span>
             {{- event.type }}

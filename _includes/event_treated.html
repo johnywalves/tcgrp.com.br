@@ -27,4 +27,10 @@
 {% assign date_format = event.date | date: '%d/%m (' | append: week | append: ')' %}
 
 {% assign stores_event = site.posts | where: 'title', event.store %}
-{% comment %} {% assign game_pages = site.pages | where_exp: 'page', 'page.game == category and page.layout == "game"' %} {% endcomment %}
+
+{% assign game_pages = site.pages | where: 'layout', 'game' %}
+{% for game_page in game_pages %}
+  {% if game_page.game == category %}
+    {% assign game = game_page %}
+  {% endif %}
+{% endfor %}
