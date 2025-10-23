@@ -26,25 +26,26 @@
   }
 </style>
 
-{% assign posts = site.posts | where: "categories", page.game %} {% assign
-events = posts | where: "layout", "event" %} {% assign stores = posts | where:
-"layout", "store" %}
+{% assign posts = site.posts | where: 'categories', page.game %}
+{% assign events = posts | where: 'layout', 'event' %}
+{% assign stores = posts | where: 'layout', 'store' %}
 
 <body>
-  <img class="background" src="/images/{{ page.background }}.webp" alt="" />
+  <img class="background" src="/images/{{ page.background }}.webp" alt="">
 
   {% include header.html %}
 
   <main class="home">
     <div class="group">
       <picture class="logo">
-        <img src="/logos/{{ page.logo }}" alt="logo {{ page.title }}" />
+        <img src="/logos/{{ page.logo }}" alt="logo {{ page.title }}">
       </picture>
 
       <p class="description">{{ page.description }}</p>
     </div>
 
-    {% include next_events.html %} {% include list_stores.html %}
+    {% include next_events.html %}
+    {% include list_stores.html %}
   </main>
 
   {% include footer.html %}

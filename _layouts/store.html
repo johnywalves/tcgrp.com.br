@@ -20,13 +20,15 @@
   }
 </style>
 
-{% assign events = site.posts | where: "store", page.title %}
+{% assign events = site.posts | where: 'store', page.title %}
 
 <body>
-  {% assign background_image = "double_typhoon.webp" %} {% if page.background %}
-  {% assign background_image = page.background %} {% endif %}
+  {% assign background_image = 'double_typhoon.webp' %}
+  {% if page.background %}
+    {% assign background_image = page.background %}
+  {% endif %}
 
-  <img class="background" src="/images/{{ background_image }}" alt="" />
+  <img class="background" src="/images/{{ background_image }}" alt="">
 
   {% include header.html %}
 
@@ -37,24 +39,28 @@
 
     <a href="https://www.instagram.com/{{ page.instagram }}/" target="_blank">
       <p>Instagram</p>
-      <p><strong>@{{ page.instagram }}</strong></p>
+      <p>
+        <strong>@{{ page.instagram }}</strong>
+      </p>
     </a>
 
     <a href="https://{{ page.website }}/" target="_blank">
       <p>Página</p>
-      <p><strong>{{ page.website }}</strong></p>
+      <p>
+        <strong>{{ page.website }}</strong>
+      </p>
     </a>
 
     {% if page.google %}
-    <iframe
-      src="{{ page.google }}"
-      title="Localização {{ page.title }}"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
-
-    {% endif %} {% include next_events.html %}
+      <iframe
+        src="{{ page.google }}"
+        title="Localização {{ page.title }}"
+        loading="lazy"
+        allowfullscreen=""
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    {% endif %}
+    {% include next_events.html %}
   </main>
 
   {% include footer.html %}

@@ -1,7 +1,12 @@
-{% assign event = page %} {% include event_treated.html %} {% include head.html
-%}
+{% assign event = page %}
+{% include event_treated.html %}
+{% include head.html %}
 
 <style>
+  main.home {
+    padding: 2rem 1rem 3rem;
+  }
+
   picture.logo {
     display: block;
     justify-self: center;
@@ -22,7 +27,7 @@
 </style>
 
 <body>
-  <img class="background" src="/backgrounds/{{ category }}.webp" alt="" />
+  <img class="background" src="/backgrounds/{{ category }}.webp" alt="">
 
   {% include header.html %}
 
@@ -30,55 +35,58 @@
     <div class="group">
       <div class="store">
         {% for game_page in game_pages %}
-        <picture class="logo">
-          <img src="/logos/{{ game_page.logo }}" alt="logo {{ page.title }}" />
-        </picture>
+          <picture class="logo">
+            <img src="/logos/{{ game_page.logo }}" alt="logo {{ page.title }}">
+          </picture>
         {% endfor %}
 
         <h3>
-          <span>{{ date_format }}{{ event.date | date: " • %H:%M" }}</span>
+          <span>
+            {{- date_format -}}
+            {{- event.date | date: ' • %H:%M' -}}
+          </span>
         </h3>
 
         <a href="/{{ category }}">
           {% for game_page in game_pages %}
-          <p>{{ game_page.title }}</p>
+            <p>{{ game_page.title }}</p>
           {% endfor %}
         </a>
 
         {% if event.type %}
-        <p>{{ event.type }}</p>
+          <p>{{ event.type }}</p>
         {% endif %}
       </div>
 
       {% for game_page in game_pages %}
-      <div class="store">
-        <p>Regras</p>
+        <div class="store">
+          <p>Regras</p>
 
-        <a
-          href="{{ game_page.restrictions }}"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <p><strong>Lista de restritas e banidas</strong></p>
-        </a>
-      </div>
+          <a
+            href="{{ game_page.restrictions }}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <p><strong>Lista de restritas e banidas</strong></p>
+          </a>
+        </div>
       {% endfor %}
 
       <div class="store">
         {% for store in stores_event reversed %}
-        <a href="{{ store.url | relative_url }}">
-          <h3 class="store">{{ store.title }}</h3>
-        </a>
+          <a href="{{ store.url | relative_url }}">
+            <h3 class="store">{{ store.title }}</h3>
+          </a>
 
-        <p class="description">{{ store.address }}</p>
+          <p class="description">{{ store.address }}</p>
 
-        <iframe
-          src="{{ store.google }}"
-          title="Localização {{ page.title }}"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
+          <iframe
+            src="{{ store.google }}"
+            title="Localização {{ page.title }}"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         {% endfor %}
       </div>
     </div>
