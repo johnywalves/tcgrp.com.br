@@ -30,15 +30,13 @@
         </a>
 
         <a href="/{{ category }}">
-          {% for game_page in game_pages %}
-            <p>
-              <span class="game">
-                {{- game_page.title -}}
-                {%- if event.type %} • {% endif -%}
-              </span>
-              {{- event.type }}
-            </p>
-          {% endfor %}
+          <p>
+            <span class="game">
+              {{ game_name }}
+              {%- if event.type %} • {% endif -%}
+            </span>
+            {{- event.type }}
+          </p>
         </a>
 
         <div class="store">

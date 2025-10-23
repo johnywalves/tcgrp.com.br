@@ -34,11 +34,13 @@
   <main class="home">
     <div class="group">
       <div class="store">
-        {% for game_page in game_pages %}
-          <picture class="logo">
-            <img src="/logos/{{ game_page.logo }}" alt="logo {{ page.title }}">
-          </picture>
-        {% endfor %}
+        {% comment %}
+          {% for game_page in game_pages %}
+            <picture class="logo">
+              <img src="/logos/{{ game_page.logo }}" alt="logo {{ page.title }}">
+            </picture>
+          {% endfor %}
+        {% endcomment %}
 
         <h3>
           <span>
@@ -48,9 +50,7 @@
         </h3>
 
         <a href="/{{ category }}">
-          {% for game_page in game_pages %}
-            <p>{{ game_page.title }}</p>
-          {% endfor %}
+          <p>{{ game_name }}</p>
         </a>
 
         {% if event.type %}
@@ -58,19 +58,21 @@
         {% endif %}
       </div>
 
-      {% for game_page in game_pages %}
-        <div class="store">
-          <p>Regras</p>
+      {% comment %}
+        {% for game_page in game_pages %}
+          <div class="store">
+            <p>Regras</p>
 
-          <a
-            href="{{ game_page.restrictions }}"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <p><strong>Lista de restritas e banidas</strong></p>
-          </a>
-        </div>
-      {% endfor %}
+            <a
+              href="{{ game_page.restrictions }}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <p><strong>Lista de restritas e banidas</strong></p>
+            </a>
+          </div>
+        {% endfor %}
+      {% endcomment %}
 
       <div class="store">
         {% for store in stores_event reversed %}
