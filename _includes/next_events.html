@@ -28,11 +28,11 @@
               <h4>{{ event.date | date: "%H:%M" }}</h4>
             </a>
 
-            <!-- <a href="/{{ category }}">
+            <a href="/{{ category }}">
               {% for game_page in game_pages %}
                 <p><span class="game">{{ game_page.title }}{% if event.type  %} • {% endif %}</span>{{ event.type }}</p>
               {% endfor %}
-            </a> -->
+            </a>
 
             <div class="store">
               {% for store in stores_event reversed %}
