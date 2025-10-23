@@ -10,4 +10,4 @@ elsif week_day == '5' %} {% assign week = 'Sex' %} {% elsif week_day == '6' %}
 date_format = event.date | date: "%d/%m (" | append: week | append: ")" %} {%
 assign stores_event = site.posts | where: "title", event.store %} {% assign
 game_pages = site.pages | where_exp: "page", "page.game == category and
-page.layout == 'game'" %}
+page.layout == 'game' " %}

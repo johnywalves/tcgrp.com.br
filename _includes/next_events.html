@@ -1,5 +1,5 @@
 <div id="torneios" class="group">
-  <h2>Próximos Torneios</h2>
+  <h2>Próximos Torneios <a href="#torneios" class="internal-link">#</a> </h2>
   <ul class="events">
     {% for event in events reversed %}
       {% include event_treated.html %}
@@ -14,9 +14,9 @@
           </li>
         {% endif %}
 
-      <li id="{{ event.date | date: "%Y-%m-%d" }}" class="date" data-date="{{ event.date | date: "%Y-%m-%d" }}">
-        <h3 class="date">{{ date_format }}</h3>
-        <ul class="events-date" >
+        <li id="{{ event.date | date: "%Y-%m-%d" }}" class="date" data-date="{{ event.date | date: "%Y-%m-%d" }}">
+          <h3 class="date">{{ date_format }}</h3>
+          <ul class="events-date" >
       {% endif %}
 
           <li class="event" 
