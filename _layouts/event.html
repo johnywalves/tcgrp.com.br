@@ -1,6 +1,26 @@
 {% assign event = page %} {% include event_treated.html %} {% include head.html
 %}
 
+<style>
+  picture.logo {
+    display: block;
+    justify-self: center;
+
+    width: 250px;
+    height: 100px;
+
+    & img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  div.store {
+    align-items: center;
+  }
+</style>
+
 <body>
   <img class="background" src="/backgrounds/{{ category }}.webp" alt="" />
 
@@ -9,18 +29,40 @@
   <main class="home">
     <div class="group">
       <div class="store">
+        {% for game_page in game_pages %}
+        <picture class="logo">
+          <img src="/logos/{{ game_page.logo }}" alt="logo {{ page.title }}" />
+        </picture>
+        {% endfor %}
+
         <h3>
           <span>{{ date_format }}{{ event.date | date: " • %H:%M" }}</span>
         </h3>
 
         <a href="/{{ category }}">
-          <p>{{ game_name }}</p>
+          {% for game_page in game_pages %}
+          <p>{{ game_page.title }}</p>
+          {% endfor %}
         </a>
 
         {% if event.type %}
         <p>{{ event.type }}</p>
         {% endif %}
       </div>
+
+      {% for game_page in game_pages %}
+      <div class="store">
+        <p>Regras</p>
+
+        <a
+          href="{{ game_page.restrictions }}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <p><strong>Lista de restritas e banidas</strong></p>
+        </a>
+      </div>
+      {% endfor %}
 
       <div class="store">
         {% for store in stores_event reversed %}

@@ -16,7 +16,7 @@ Proposta do circuito, como vamos organizar as participações
 
 - Cada etapa corre em um loja participante do circuito, em lojas diferentes
   - As etapas deveram ocorrer nos domingos sem feriados prolongados
-  - A final ocorrerá em **26/10/2026** (Domingo) em uma das lojas participantes podendo repetir para essa etapa
+  - A final ocorrerá em **26/07/2026** (Domingo) em uma das lojas participantes podendo repetir para essa etapa
 - No final de cada etapa os **oito primeiros** colocados devem compartilhar a decklist, será documentado e compartilhado com a comunidade nessa plataforma
 - Final será disputada com **dezesseis participantes** com os participantes com maior pontuação
 

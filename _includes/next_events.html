@@ -29,7 +29,9 @@
             </a>
 
             <a href="/{{ category }}">
-              <p><span class="game">{{ game_name }}{% if event.type  %} • {% endif %}</span>{{ event.type }}</p>
+              {% for game_page in game_pages %}
+              <p><span class="game">{{ game_page.title }}{% if event.type  %} • {% endif %}</span>{{ event.type }}</p>
+             {% endfor %}
             </a>
 
             <div class="store">
