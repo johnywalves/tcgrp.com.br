@@ -25,18 +25,28 @@
         data-date="{{ event.date | date: "%Y-%m-%d" }}"
         data-store="{{ store.title }}"
       >
-        <a href="{{ event.url | relative_url }}">
-          <h4>{{ event.date | date: '%H:%M' }}</h4>
-        </a>
-
-        <a href="/{{ category }}">
+        {% if page.layout == 'game' %}
           <p>
             <span class="game">
               {{ game.title }}
               {%- if event.type %} • {% endif -%}
             </span>
-            {{- event.type }}
+            {{ event.type }}
           </p>
+        {% else %}
+          <a href="/{{ category }}">
+            <p>
+              <span class="game">
+                {{ game.title }}
+                {% if event.type %} • {% endif %}
+              </span>
+              {{ event.type }}
+            </p>
+          </a>
+        {% endif %}
+
+        <a href="{{ event.url | relative_url }}" class="event_time">
+          <h4>{{ event.date | date: '%H:%M' }}</h4>
         </a>
 
         <div class="store">
