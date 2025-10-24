@@ -11,6 +11,10 @@
     padding: 1rem 1rem 3rem;
   }
 
+  main.store > a {
+    margin-top: 1.5rem;
+  }
+
   div.group {
     margin-top: 2rem;
   }
@@ -23,12 +27,12 @@
 {% assign events = site.posts | where: 'store', page.title %}
 
 <body>
-  {% assign background_image = 'double_typhoon.webp' %}
+  {% assign background_image = 'digimon.webp' %}
   {% if page.background %}
     {% assign background_image = page.background %}
   {% endif %}
 
-  <img class="background" src="/images/{{ background_image }}" alt="">
+  <img class="background" src="/backgrounds/{{ background_image }}" alt="">
 
   {% include header.html %}
 

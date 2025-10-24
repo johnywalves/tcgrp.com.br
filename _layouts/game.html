@@ -17,10 +17,6 @@
     }
   }
 
-  span.game {
-    display: none;
-  }
-
   div#lojas {
     margin-top: 2rem;
   }
@@ -31,7 +27,7 @@
 {% assign stores = posts | where: 'layout', 'store' %}
 
 <body>
-  <img class="background" src="/images/{{ page.background }}.webp" alt="">
+  <img class="background" src="/backgrounds/{{ page.background }}.webp" alt="">
 
   {% include header.html %}
 

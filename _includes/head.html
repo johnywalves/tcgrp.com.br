@@ -30,9 +30,9 @@
   <meta property="og:title" content="{{ title }}">
   <meta property="og:description" content="{{ site.description }}">
 
-  {% assign thumbnail = site.url | append: site.baseurl | append: '/images/thumbnail.jpg' %}
+  {% assign thumbnail = site.url | append: site.baseurl | append: '/thumbnail/thumbnail.jpg' %}
   {% if page.thumbnail %}
-    {% assign thumbnail = site.url | append: site.baseurl | append: '/images/' | append: page.thumbnail %}
+    {% assign thumbnail = site.url | append: site.baseurl | append: '/thumbnail/' | append: page.thumbnail %}
   {% endif %}
 
   <meta property="og:image" content="{{ thumbnail }}">

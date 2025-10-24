@@ -7,6 +7,8 @@
 {% endif %}
 
 {% assign week_day = event.date | date: '%u' %}
+{% assign week_number = event.date | date: '%V' %}
+
 {% if week_day == '1' %}
   {% assign week = 'Seg' %}
 {% elsif week_day == '2' %}
@@ -24,6 +26,7 @@
 {% endif %}
 
 {% assign month_day = event.date | date: '%d' %}
+{% assign month_number = event.date | date: '%m' %}
 {% assign date_format = event.date | date: '%d/%m (' | append: week | append: ')' %}
 
 {% assign stores_event = site.posts | where: 'title', event.store %}
