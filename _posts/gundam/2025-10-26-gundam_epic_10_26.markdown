@@ -1,8 +1,0 @@
----
-layout: event
-date: 2025-10-26 14:30:00 -0300
-type: GD2 Release
-store: Epic Level
-categories:
-  - gundam
----

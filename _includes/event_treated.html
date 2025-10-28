@@ -1,9 +1,13 @@
 {% assign category = event.categories | join: '' %}
 
+{% assign week_number = event.date | date: '%V' %}
+{% if week_day == '7' %}
+  {% assign week_number = week_number - 1 %}
+{% endif %}
+
 {% assign month_day = event.date | date: '%d' %}
 {% assign month_number = event.date | date: '%m' %}
 {% assign week_day = event.date | date: '%u' %}
-{% assign week_number = event.date | date: '%V' %}
 
 {% if week_day == '1' %}
   {% assign week = 'Seg' %}

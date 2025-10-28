@@ -4,7 +4,7 @@
     {% for event in events reversed %}
       {% include event_treated.html %}
 
-      {% if week_day <= week_day_prev and month_day != month_day_prev or month_number != month_number_prev %}
+      {% if week_number != week_number_prev and forloop.first != true %}
         <p class="separator">― • ―</p>
       {% endif %}
 
@@ -60,6 +60,7 @@
       </li>
 
       {% assign week_day_prev = week_day %}
+      {% assign week_number_prev = week_number %}
       {% assign month_day_prev = month_day %}
       {% assign month_number_prev = month_number %}
       {% assign date_format_prev = date_format %}

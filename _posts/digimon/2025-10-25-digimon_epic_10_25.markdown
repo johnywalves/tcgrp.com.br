@@ -1,8 +1,0 @@
----
-layout: event
-date: 2025-10-25 14:30:00 -0300
-type: Regulation Battle
-store: Epic Level
-categories:
-  - digimon
----
