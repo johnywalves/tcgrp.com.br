@@ -1,7 +1,0 @@
----
-layout: event
-date: 2025-11-09 14:30:00 -0300
-store: Epic Level
-categories:
-  - digimon
----
