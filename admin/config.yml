@@ -1,0 +1,78 @@
+backend:
+  name: github
+  repo: johnywalves/tcgrp.com.br
+  branch: main
+media_folder: uploads
+collections:
+  - name: "store"
+    label: "Lojas"
+    folder: "_posts/store"
+    fields:
+      - { label: "Layout", name: layout, widget: "hidden", default: "store" }
+      - { label: "Nome", name: title, widget: "string" }
+      - { label: "Endereço", name: address, widget: "string" }
+      - { label: "Cidade", name: city, widget: "string" }
+      - { label: "Embedded Google Maps", name: google, widget: "string" }
+      - { label: "Instagram", name: instagram, widget: "string" }
+      - { label: "Endereço Site", name: website, widget: "string" }
+      - { label: "Imagem de fundo", name: background, widget: "string" }
+      - {
+          label: "Categorias",
+          name: categories,
+          widget: "list",
+          options: ["digimon", "gundam"],
+        }
+  - name: "digimon"
+    label: "Digimon"
+    folder: "_posts/digimon"
+    fields:
+      - { label: "Layout", name: layout, widget: "hidden", default: "event" }
+      - {
+          label: "Categorias",
+          name: categories,
+          widget: "hidden",
+          default: "digimon",
+        }
+      - { label: "Data", name: date, widget: "datetime" }
+      - {
+          label: "Loja",
+          name: store,
+          widget: "relation",
+          collection: "store",
+          search_fields: ["title", "city"],
+          value_field: "title",
+          display_fields: ["title"],
+        }
+      - {
+          label: "Tipo",
+          name: type,
+          widget: "select",
+          options:
+            [
+              "Store Event",
+              "Evolution Cup",
+              "Regulation Battle",
+              "Aprenda a jogar",
+            ],
+        }
+  - name: "gundam"
+    label: "Gundam"
+    folder: "_posts/gundam"
+    fields:
+      - { label: "Layout", name: layout, widget: "hidden", default: "event" }
+      - {
+          label: "Categorias",
+          name: categories,
+          widget: "hidden",
+          default: "gundam",
+        }
+      - { label: "Data", name: date, widget: "datetime" }
+      - {
+          label: "Loja",
+          name: store,
+          widget: "relation",
+          collection: "store",
+          search_fields: ["title", "city"],
+          value_field: "title",
+          display_fields: ["title"],
+        }
